@@ -25,7 +25,8 @@ end
 
 if vim.g.neovide then
     -- Put anything you want to happen only in Neovide here
-  vim.o.guifont = "FiraMono Nerd Font:h10" -- text below applies for VimScript
+  vim.o.guifont = "FiraCode Nerd Font:h9" -- text below applies for VimScript
+  vim.g.neovide_cursor_vfx_mode = "sonicboom"
 end
 
 require "lazy_setup"
