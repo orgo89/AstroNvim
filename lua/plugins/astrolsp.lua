@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
@@ -93,6 +93,11 @@ return {
             return client.supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
           end,
         },
+        gpd = {
+          function() require("goto-preview").goto_preview_definition() end,
+          desc = "Preview definition",
+          cond = "textDocument/declaration",
+        }
       },
     },
     -- A custom `on_attach` function to be run after the default `on_attach` function
