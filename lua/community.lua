@@ -9,5 +9,8 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.java" },
+  { import = "astrocommunity.pack.xml" },
+  { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.sql" },
   -- import/override with your plugins folder
 }
