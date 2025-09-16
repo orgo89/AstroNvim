@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
@@ -98,6 +98,30 @@ return {
           function() require("goto-preview").goto_preview_definition() end,
           desc = "Preview definition",
           cond = "textDocument/declaration",
+        },
+        gpt = {
+          function() require("goto-preview").goto_preview_type_definition(
+            { focus_on_open = true, dismiss_on_move = false }) end,
+          desc = "Preview type definition",
+          cond = "textDocument/declaration",
+        },
+        gpi = {
+          function() require("goto-preview").goto_preview_implementation({ focus_on_open = true, dismiss_on_move = false }) end,
+          desc = "Preview implementation",
+          cond = "textDocument/declaration",
+        },
+        gpD = {
+          function() require("goto-preview").goto_preview_declaration({ focus_on_open = true, dismiss_on_move = false }) end,
+          desc = "Preview declaration",
+          cond = "textDocument/declaration",
+        },
+        gP = {
+          function() require("goto-preview").close_all_win({}) end,
+          desc = "Close all preview windows"
+        },
+        gpr = {
+          function() require("goto-preview").goto_preview_references({ focus_on_open = true, dismiss_on_move = false }) end,
+          desc = "Preview references"
         }
       },
     },
