@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.pack.xml" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.sql" },
+  { import = "astrocommunity.pack.typescript-all-in-one" }
   -- { import = "astrocommunity.recipes.ai" }
   -- import/override with your plugins folder
 }
