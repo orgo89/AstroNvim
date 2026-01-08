@@ -1,7 +1,9 @@
 # NOTE: This file should be placed in ~/.config/neovide/
 [font]
-size=9
-normal=["FiraCode Nerd Font"]
-style=["Medium"]
+size = 9
 
+[[font.normal]]
+family = "FiraCode Nerd Font Med"
 
+[[font.bold]]
+family = "FiraCode Nerd Font"
