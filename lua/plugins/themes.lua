@@ -32,21 +32,21 @@ return {
   {
     "sainnhe/gruvbox-material",
     name = "gruvbox-material",
-    lazy = true,
+    lazy = false,
     -- priority = 1000,
     config = function()
       -- Optionally configure and load the colorscheme
       -- directly inside the plugin declaration.
       vim.g.gruvbox_material_enable_italic = true
       vim.cmd.colorscheme("gruvbox-material")
-      vim.o.background = 'light'
+      vim.o.background = 'dark'
       vim.o.termguicolors = true
     end
   },
   {
     "maxmx03/solarized.nvim",
     name = "solarized",
-    lazy = true,
+    lazy = false,
     opts = {
       variant = 'summer'
     },
@@ -55,6 +55,23 @@ return {
       vim.o.background = 'light'
       require('solarized').setup(opts)
       vim.cmd.colorscheme 'solarized'
+    end
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  {
+    'sainnhe/everforest',
+    lazy = false,
+    priority = 1000,
+    config = function()
+    -- Optionally configure and load the colorscheme
+    -- directly inside the plugin declaration.
+    vim.g.everforest_enable_italic = true
+    vim.cmd.colorscheme('everforest')
     end
   }
 }

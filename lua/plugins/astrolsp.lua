@@ -122,6 +122,30 @@ return {
         gpr = {
           function() require("goto-preview").goto_preview_references({ focus_on_open = true, dismiss_on_move = false }) end,
           desc = "Preview references"
+        },
+        ["<Leader>dn"] = {
+          function() require("jdtls").test_nearest_method() end,
+          desc = "Run/Debug the nearest test method"
+        },
+        ["<Leader>df"] = {
+          function() require("jdtls").test_class() end,
+          desc = "Run/Debug the current test class"
+        },
+        ["<Leader>da"] = {
+          function() require("jdtls").pick_test() end,
+          desc = "Prompt to pick a test"
+        },
+        ["<Leader>lj"] = {
+          function() require("jdtls").jshell() end,
+          desc = "Run Jshell with classpath based on current project"
+        },
+        ["<Leader>lt"] = {
+          function() require("jdtls.tests").generate() end,
+          desc = "Generate tests for current class"
+        },
+        ["<Leader>lg"] = {
+          function() require("jdtls.tests").goto_subjects() end,
+          desc = "Goto subjects: test class, class tested or generate tests"
         }
       },
     },
