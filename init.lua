@@ -23,12 +23,5 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
-if vim.g.neovide then
-    -- Put anything you want to happen only in Neovide here
-  -- The setting below was deactivated in favor of config file in ~/.config/neovide/config.toml
-  -- vim.o.guifont = "FiraCode Nerd Font:h9" -- text below applies for VimScript
-  vim.g.neovide_cursor_vfx_mode = "sonicboom"
-end
-
 require "lazy_setup"
 require "polish"

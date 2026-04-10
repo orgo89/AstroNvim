@@ -39,23 +39,22 @@ return {
       -- end
     },
     -- enable servers that you already have installed without mason
-    -- servers = {
-    --   -- "pyright"
-    -- },
-    -- customize language server configuration options passed to `lspconfig`
-    ---@diagnostic disable: missing-fields
-    -- config = {
-    --   -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
-    -- },
+    servers = {
+      -- "pyright"
+    },
+    -- customize language server configuration passed to `vim.lsp.config`
+    -- client specific configuration can also go in `lsp/` in your configuration root (see `:h lsp-config`)
+    config = {
+      -- ["*"] = { capabilities = {} }, -- modify default LSP client settings such as capabilities
+    },
     -- customize how language servers are attached
-    -- handlers = {
-    --   -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
-    --   -- function(server, opts) require("lspconfig")[server].setup(opts) end
-    --
-    --   -- the key is the server that is being setup with `lspconfig`
-    --   -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
-    --   -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
-    -- },
+    handlers = {
+      -- a function with the key `*` modifies the default handler, functions takes the server name as the parameter
+      -- ["*"] = function(server) vim.lsp.enable(server) end
+
+      -- the key is the server that is being setup with `vim.lsp.config`
+      -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
+    },
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {
       -- first key is the `augroup` to add the auto commands to (:h augroup)
@@ -73,7 +72,7 @@ return {
           -- the rest of the autocmd options (:h nvim_create_autocmd)
           desc = "Refresh codelens (buffer)",
           callback = function(args)
-            if require("astrolsp").config.features.codelens then vim.lsp.codelens.refresh { bufnr = args.buf } end
+            if require("astrolsp").config.features.codelens then vim.lsp.codelens.enable(true, { bufnr = args.buf }) end
           end,
         },
       },
@@ -91,7 +90,7 @@ return {
           function() require("astrolsp.toggles").buffer_semantic_tokens() end,
           desc = "Toggle LSP semantic highlight (buffer)",
           cond = function(client)
-            return client.supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
+            return client:supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
           end,
         },
         gpd = {
@@ -150,7 +149,7 @@ return {
       },
     },
     -- A custom `on_attach` function to be run after the default `on_attach` function
-    -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
+    -- takes two parameters `client` and `bufnr`  (`:h lsp-attach`)
     on_attach = function(client, bufnr)
       -- this would disable semanticTokensProvider for all clients
       -- client.server_capabilities.semanticTokensProvider = nil
