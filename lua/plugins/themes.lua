@@ -38,24 +38,31 @@ return {
       -- Optionally configure and load the colorscheme
       -- directly inside the plugin declaration.
       vim.g.gruvbox_material_enable_italic = true
-      vim.cmd.colorscheme("gruvbox-material")
-      vim.o.background = 'dark'
+      vim.cmd.colorscheme "gruvbox-material"
+      vim.o.background = "dark"
       vim.o.termguicolors = true
-    end
+    end,
   },
   {
     "maxmx03/solarized.nvim",
     name = "solarized",
     lazy = false,
     opts = {
-      variant = 'summer'
+      variant = "summer",
     },
-    config = function (_, opts)
+    config = function(_, opts)
       vim.o.termguicolors = true
-      vim.o.background = 'dark'
-      require('solarized').setup(opts)
-      vim.cmd.colorscheme 'solarized'
-    end
+      -- vim.o.background = 'dark'
+      vim.o.background = "light"
+      require("solarized").setup(opts)
+      vim.cmd.colorscheme "solarized"
+      -- vim.cmd [[
+      --   highlight Normal guibg=none
+      --   highlight NonText guibg=none
+      --   highlight Normal ctermbg=none
+      --   highlight NonText ctermbg=none
+      -- ]]
+    end,
   },
   {
     "folke/tokyonight.nvim",
@@ -64,14 +71,14 @@ return {
     opts = {},
   },
   {
-    'sainnhe/everforest',
+    "sainnhe/everforest",
     lazy = false,
     priority = 1000,
     config = function()
-    -- Optionally configure and load the colorscheme
-    -- directly inside the plugin declaration.
-    vim.g.everforest_enable_italic = true
-    vim.cmd.colorscheme('everforest')
-    end
-  }
+      -- Optionally configure and load the colorscheme
+      -- directly inside the plugin declaration.
+      vim.g.everforest_enable_italic = true
+      vim.cmd.colorscheme "everforest"
+    end,
+  },
 }
