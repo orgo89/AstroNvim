@@ -1,4 +1,5 @@
 # Checkout details about configuration in https://github.com/sqls-server/sqls#configuration-methods
+
 # This file should be placed in $XDG_CONFIG_HOME/sqls/config.yml ("$HOME/.config" is used instead of $XDG_CONFIG_HOME if it's not set)
 # Set to true to use lowercase keywords instead of uppercase.
 lowercaseKeywords: false

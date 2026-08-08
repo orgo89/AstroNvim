@@ -1,5 +1,4 @@
-
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 return {
   "zbirenbaum/copilot.lua",
@@ -8,6 +7,7 @@ return {
   event = "BufReadPost",
   opts = {
     suggestion = {
+      auto_trigger = true,
       keymap = {
         accept = false, -- handled by completion engine
       },
