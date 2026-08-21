@@ -81,4 +81,32 @@ return {
       vim.cmd.colorscheme "everforest"
     end,
   },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = false,
+  },
+  {
+    "ribru17/bamboo.nvim",
+    lazy = false,
+  },
+  {
+    "xero/miasma.nvim",
+    lazy = false,
+  },
+  {
+    "maxmx03/fluoromachine.nvim",
+    lazy = false,
+    config = function()
+      local fm = require "fluoromachine"
+
+      fm.setup {
+        glow = true,
+        theme = "retrowave",
+        transparent = false,
+      }
+
+      vim.cmd.colorscheme "fluoromachine"
+    end,
+  },
 }
