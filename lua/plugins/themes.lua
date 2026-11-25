@@ -3,36 +3,28 @@
 return {
   {
     "rebelot/kanagawa.nvim",
-    name = "kanagawa",
   },
   {
     "EdenEast/nightfox.nvim",
-    name = "nightfox",
   },
   {
     "baliestri/aura-theme",
-    name = "aura",
   },
   {
     "rose-pine/neovim",
-    name = "rose-pine",
   },
   {
     "savq/melange-nvim",
-    name = "melange",
   },
   {
     "luisiacc/gruvbox-baby",
-    name = "gruvbox-baby",
   },
   {
     "Biscuit-Theme/nvim",
-    name = "Biscuit-Theme",
   },
   {
     "sainnhe/gruvbox-material",
-    name = "gruvbox-material",
-    lazy = false,
+--     lazy = false,
     -- priority = 1000,
     config = function()
       -- Optionally configure and load the colorscheme
@@ -45,8 +37,7 @@ return {
   },
   {
     "maxmx03/solarized.nvim",
-    name = "solarized",
-    lazy = false,
+--     lazy = false,
     opts = {
       variant = "summer",
     },
@@ -83,8 +74,7 @@ return {
   },
   {
     "catppuccin/nvim",
-    name = "catppuccin",
-    lazy = false,
+--     lazy = false,
   },
   {
     "ribru17/bamboo.nvim",
@@ -109,4 +99,16 @@ return {
       vim.cmd.colorscheme "fluoromachine"
     end,
   },
+  {
+    "olimorris/onedarkpro.nvim"
+  },
+  {
+    'uloco/bluloco.nvim',
+    lazy = false,
+    dependencies = { 'rktjmp/lush.nvim' },
+    opts = {},
+  },
+  {
+    "harshrajsachan/omni.nvim"
+  }
 }
